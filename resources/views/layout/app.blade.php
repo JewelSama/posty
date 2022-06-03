@@ -33,7 +33,7 @@
         </ul>
         <ul class="flex item-center">
             <li class="p-3">
-                <a href="">Jewel Sama</a>
+                <a href="/"><b>{{auth()->user()->username}}</b></a>
             </li>
             <li class="p-3">
                 <a href="">Login</a>
