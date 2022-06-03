@@ -38,7 +38,7 @@
                 <a href="/"><b>{{auth()->user()->username}}🤗</b></a>
             </li>
             <li class="p-3">
-                <a href="">Logout</a>
+                <a href="{{route('logout')}}">Logout</a>
             </li>
             @endauth
 
