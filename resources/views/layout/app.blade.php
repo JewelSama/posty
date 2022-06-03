@@ -32,18 +32,24 @@
             </li>
         </ul>
         <ul class="flex item-center">
+            @auth
+            
             <li class="p-3">
-                <a href="/"><b>{{auth()->user()->username}}</b></a>
+                <a href="/"><b>{{auth()->user()->username}}🤗</b></a>
             </li>
+            <li class="p-3">
+                <a href="">Logout</a>
+            </li>
+            @endauth
+
+            @guest
             <li class="p-3">
                 <a href="">Login</a>
             </li>
             <li class="p-3">
                 <a href="{{route('register')}}">Register</a>
             </li>
-            <li class="p-3">
-                <a href="">Logout</a>
-            </li>
+            @endguest
         </ul>
     </nav>
         @yield('content')
