@@ -25,7 +25,7 @@
                 <a href="">Home</a>
             </li>
             <li class="p-3">
-                <a href="">Dashboard</a>
+                <a href="{{route('dashboard')}}">Dashboard</a>
             </li>
             <li class="p-3">
                 <a href="">Post</a>
@@ -38,7 +38,10 @@
                 <a href="/"><b>{{auth()->user()->username}}🤗</b></a>
             </li>
             <li class="p-3">
-                <a href="{{route('logout')}}">Logout</a>
+                <form action="{{route('logout')}}" method="post" class="inline p-3">
+                    @csrf
+                <button type="submit" >Logout</a>
+                </form>
             </li>
             @endauth
 

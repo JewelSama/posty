@@ -22,7 +22,7 @@ Route::get('/home', function(){
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
