@@ -44,7 +44,7 @@
 
             @guest
             <li class="p-3">
-                <a href="">Login</a>
+                <a href="{{route('login')}}">Login</a>
             </li>
             <li class="p-3">
                 <a href="{{route('register')}}">Register</a>
