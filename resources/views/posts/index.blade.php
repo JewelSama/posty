@@ -29,14 +29,18 @@
                         <span class="text-sm">{{$post->created_at->diffForHumans()}}</span>
                         <p class="mb-2">{{$post->body}}</p>
                         <div class="flex items-center">
-                            <form action="" method="POST" class="mr-1">
+                            @if(!$post->likedBy(auth()->user()))
+                            <form action="{{route('posts.likes', $post->id)}}" method="POST" class="mr-1">
                                 @csrf
                                 <button class="text-blue-500" type="submit">Like</button>
                             </form>
-                            <form action="" method="POST" class="mr-1">
+                            @else
+                            <form action="{{route('posts.likes', $post->id)}}" method="POST" class="mr-1">
                                 @csrf
+                                @method('DELETE')
                                 <button class="text-blue-500" type="submit">Unlike</button>
                             </form>
+                            @endif
                             <span>{{$post->likes->count()}} {{Str::plural('like', $post->likes->count())}}</span>
                         </div>
                     </div>
