@@ -28,6 +28,18 @@
                         <a href="" class="font-bold">{{$post->user->username}}</a>
                         <span class="text-sm">{{$post->created_at->diffForHumans()}}</span>
                         <p class="mb-2">{{$post->body}}</p>
+
+                        <div>
+                            @if($post->ownedBy(auth()->user()))
+                            <form action="{{route('posts.destroy', $post)}}" method="POST" class="mr-1">
+                                @csrf
+                                @method('DELETE')
+                                <button class="text-red-500" type="submit">Delete</button>
+                            </form>
+                            @endif
+                        </div>
+
+
                         <div class="flex items-center">
                             @auth
                             @if(!$post->likedBy(auth()->user()))
