@@ -29,6 +29,7 @@
                         <span class="text-sm">{{$post->created_at->diffForHumans()}}</span>
                         <p class="mb-2">{{$post->body}}</p>
                         <div class="flex items-center">
+                            @auth
                             @if(!$post->likedBy(auth()->user()))
                             <form action="{{route('posts.likes', $post->id)}}" method="POST" class="mr-1">
                                 @csrf
@@ -41,6 +42,9 @@
                                 <button class="text-blue-500" type="submit">Unlike</button>
                             </form>
                             @endif
+                          
+
+                            @endauth
                             <span>{{$post->likes->count()}} {{Str::plural('like', $post->likes->count())}}</span>
                         </div>
                     </div>
