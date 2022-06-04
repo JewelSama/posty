@@ -22,6 +22,18 @@
                     </button>
                 </div>
             </form>
+            @if($posts->count())
+                @foreach($posts as $post)
+                    <div class="mb-4">
+                        <a href="" class="font-bold">{{$post->user->username}}</a>
+                        <span class="text-sm">date</span>
+                        <p class="mb-2">{{$post->body}}</p>
+                    </div>
+                @endforeach
+            @else
+            <p>There are no posts</p>
+            @endif
+
         </div>
     </div>
 
