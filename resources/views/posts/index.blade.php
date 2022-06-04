@@ -28,6 +28,11 @@
                         <a href="" class="font-bold">{{$post->user->username}}</a>
                         <span class="text-sm">{{$post->created_at->diffForHumans()}}</span>
                         <p class="mb-2">{{$post->body}}</p>
+                        <div class="flex items-center">
+                            <form action="{{}}" method="POST" class="mr-1">
+                                
+                            </form>
+                        </div>
                     </div>
                 @endforeach
                 {{$posts->links()}}
